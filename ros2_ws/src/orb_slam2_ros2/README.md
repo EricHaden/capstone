@@ -1,6 +1,7 @@
 # ORB-SLAM2 ROS2 Wrapper for Intel RealSense
 
-ROS2 wrapper for ORB-SLAM2 RGB-D SLAM system, designed to work with Intel RealSense cameras on the Jetson platform.
+ROS2 wrapper for ORB-SLAM2 RGB-D SLAM system, designed to work with Intel RealSense cameras on the Jetson platform. 
+
 
 ## Overview
 

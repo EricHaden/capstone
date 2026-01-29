@@ -1,0 +1,31 @@
+# Build artifacts
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE/Editor
+.cursor/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Datasets (too large for git)
+datasets/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Compiled objects
+*.o
+*.so
+*.a
+
+# Core dumps
+core

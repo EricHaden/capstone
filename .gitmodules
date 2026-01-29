@@ -1,0 +1,6 @@
+[submodule "ORB_SLAM2"]
+	path = ORB_SLAM2
+	url = https://github.com/EricHaden/ORB_SLAM2.git
+[submodule "Pangolin"]
+	path = Pangolin
+	url = https://github.com/stevenlovegrove/Pangolin.git

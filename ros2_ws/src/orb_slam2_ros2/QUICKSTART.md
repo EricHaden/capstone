@@ -36,7 +36,7 @@ Keep this terminal open.
 Open a **new** terminal and run:
 
 ```bash
-source /home/jetson/capstone/ros2_ws/install/setup.bash
+source /home/jetson/capstone/ros2_ws/setup_workspace.sh
 ros2 topic list
 ```
 
@@ -83,7 +83,8 @@ Watch the terminal for messages about tracking state. When initialized, you shou
 In a **new** terminal:
 
 ```bash
-source /home/jetson/capstone/ros2_ws/install/setup.bash
+
+source /home/jetson/capstone/ros2_ws/setup_workspace.sh
 ros2 topic echo /orb_slam2/camera_pose
 ```
 

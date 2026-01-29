@@ -33,14 +33,25 @@ colcon build --packages-select orb_slam2_ros2 --symlink-install
 
 ### 2. Source the Workspace
 
+From the workspace directory (works in **bash** and **zsh**):
+
 ```bash
-source /home/jetson/capstone/ros2_ws/install/setup.bash
+cd /home/jetson/capstone/ros2_ws
+source ./setup_workspace.sh
 ```
 
-Or add to your `~/.bashrc`:
+Or source the install directly: `setup.bash` for bash, `setup.zsh` for zsh (sourcing `setup.bash` under zsh fails because of shell differences).
+
+To persist for bash:
 
 ```bash
 echo "source /home/jetson/capstone/ros2_ws/install/setup.bash" >> ~/.bashrc
+```
+
+For zsh add to `~/.zshrc`:
+
+```bash
+echo "source /home/jetson/capstone/ros2_ws/setup_workspace.sh" >> ~/.zshrc
 ```
 
 ### 3. Launch the SLAM System
@@ -52,7 +63,7 @@ ros2 launch /home/jetson/capstone/ros2_ws/launch/jetson_launch.py
 
 **Terminal 2** - Start SLAM:
 ```bash
-source /home/jetson/capstone/ros2_ws/install/setup.bash
+source /home/jetson/capstone/ros2_ws/setup_workspace.sh
 ros2 launch orb_slam2_ros2 slam_launch.py
 ```
 
@@ -104,16 +115,16 @@ cd /home/jetson/capstone/ros2_ws/src
 # Create or copy your package here
 cd ..
 colcon build --packages-select <your_package_name>
-source install/setup.bash
+source ./setup_workspace.sh
 ```
 
 ## Troubleshooting
 
 ### Package not found after building
 
-Make sure to source the workspace:
+Make sure to source the workspace (use `setup_workspace.sh` for both bash and zsh):
 ```bash
-source /home/jetson/capstone/ros2_ws/install/setup.bash
+source /home/jetson/capstone/ros2_ws/setup_workspace.sh
 ```
 
 ### Build errors

@@ -194,7 +194,8 @@ int main(int argc, char **argv)
 {
     rclcpp::init(argc, argv);
 
-    if(argc != 3 && argc != 4)
+    // Need at least vocab + settings (2 args). Launch may add --ros-args/--params-file, so argc can be > 4.
+    if(argc < 3)
     {
         cerr << endl << "Usage: ros2 run orb_slam2_ros2 rgbd_slam_node path_to_vocabulary path_to_settings [use_viewer]" << endl;
         cerr << "Example: ros2 run orb_slam2_ros2 rgbd_slam_node /path/to/ORBvoc.txt /path/to/config.yaml false" << endl;
@@ -202,7 +203,7 @@ int main(int argc, char **argv)
     }
 
     bool bUseViewer = false;
-    if(argc == 4)
+    if(argc >= 4 && argv[3][0] != '-')  // 4th arg is use_viewer only if not a ROS 2 option (e.g. --ros-args)
     {
         string strViewer(argv[3]);
         bUseViewer = (strViewer == "true" || strViewer == "1");

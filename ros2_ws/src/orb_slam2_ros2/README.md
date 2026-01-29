@@ -21,7 +21,7 @@ This package subscribes to RGB and depth image topics from a RealSense camera an
 ```bash
 cd /home/jetson/capstone/ros2_ws
 colcon build --packages-select orb_slam2_ros2 --symlink-install
-source install/setup.bash
+source ./setup_workspace.sh   # use this for both bash and zsh
 ```
 
 ## Usage
@@ -45,7 +45,7 @@ ros2 launch realsense2_camera rs_launch.py enable_depth:=true enable_color:=true
 In a new terminal, verify the camera is publishing:
 
 ```bash
-source /home/jetson/capstone/ros2_ws/install/setup.bash
+source /home/jetson/capstone/ros2_ws/setup_workspace.sh
 ros2 topic list | grep camera
 ros2 topic hz /camera/realsense/color/image_raw
 ros2 topic hz /camera/realsense/depth/image_rect_raw
@@ -58,7 +58,7 @@ Both topics should be publishing at ~30 Hz.
 In another terminal, launch the SLAM node:
 
 ```bash
-source /home/jetson/capstone/ros2_ws/install/setup.bash
+source /home/jetson/capstone/ros2_ws/setup_workspace.sh
 ros2 launch orb_slam2_ros2 slam_launch.py
 ```
 
@@ -167,13 +167,13 @@ ros2 launch /home/jetson/capstone/ros2_ws/launch/jetson_launch.py
 Terminal 2 - Launch SLAM:
 ```bash
 cd /home/jetson/capstone/ros2_ws
-source install/setup.bash
+source ./setup_workspace.sh
 ros2 launch orb_slam2_ros2 slam_launch.py
 ```
 
 Terminal 3 - Monitor pose output:
 ```bash
-source /home/jetson/capstone/ros2_ws/install/setup.bash
+source /home/jetson/capstone/ros2_ws/setup_workspace.sh
 ros2 topic echo /orb_slam2/camera_pose
 ```
 
